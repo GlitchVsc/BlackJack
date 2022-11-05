@@ -16,6 +16,16 @@ let messageEl = document.getElementById("message-el")
 let sumEl= document.getElementById("sum-el")
 let cardsEl = document.querySelector("#cards-el")
 
+
+//Creating player Object
+let player = {
+    name: "Lhsto",
+    chips: 200
+}
+
+let playerEl=document.getElementById("player-el")
+playerEl.textContent = player.name + ": $" + player.chips
+
 //Function for the random card with math.floor and .random 
 function getRandomCard(){
 
@@ -64,10 +74,14 @@ function renderGame() {
 
 // Function for when u click the new card-button
 function drawCard(){
-    let card = getRandomCard()
-    sum += card
-    cards.push(card)
-    renderGame()
+
+    
+    if ( isAlive === true && hasBlackJack=== false){
+        let card = getRandomCard()
+        sum += card
+        cards.push(card)
+        renderGame()
+    }    
 
 }
 
