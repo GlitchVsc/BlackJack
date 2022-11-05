@@ -1,28 +1,42 @@
-let firstCard = getRandomCard()
-let secondCard = getRandomCard()
-let cards = [firstCard , secondCard]
 
-let card = 7
-let sum = firstCard + secondCard 
+let cards = []
+
+let card = 0
+let sum = 0
 let message = " "
 
 let hasBlackJack = false
-let isAlive = true
+let isAlive = false
 
 
 let start = document.getElementById("start-button")
 let newCard = document.getElementById("new-card")
-
+ 
 let messageEl = document.getElementById("message-el")
 let sumEl= document.getElementById("sum-el")
 let cardsEl = document.querySelector("#cards-el")
 
-
+//Function for the random card with math.floor and .random 
 function getRandomCard(){
-    return 5 
-}
 
+    let randomNumber = Math.floor(Math.random() *13 ) + 1
+    
+    
+    if (randomNumber > 10  ){
+        return 10
+    } else if(randomNumber === 1 ){
+        return 11
+    }else{
+            return randomNumber
+        }
+}
+    //STARTING THE GAME
 function startGame(){
+    isAlive = true
+    let firstCard = getRandomCard()
+    let secondCard = getRandomCard()
+    cards = [firstCard , secondCard]
+    sum = firstCard + secondCard
 
     renderGame()
 }
@@ -47,6 +61,8 @@ function renderGame() {
         messageEl.textContent = message
 }
 
+
+// Function for when u click the new card-button
 function drawCard(){
     let card = getRandomCard()
     sum += card
