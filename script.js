@@ -30,6 +30,8 @@ playerEl.textContent = player.name + ": $" + player.chips
 function getRandomCard(){
 
     let randomNumber = Math.floor(Math.random() *13 ) + 1
+    // let ace = confirm("do u eleven?")
+   
     
     
     if (randomNumber > 10  ){
